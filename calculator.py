@@ -4,6 +4,7 @@ last_number = None
 last_operation = None
 clear_next = False
 
+#The clear() function reset the calculator state
 def clear():
   global display, last_number, last_operation, clear_next
   display = '0'
@@ -11,6 +12,7 @@ def clear():
   last_operation = None
   clear_next = False
 
+#The negate() function changes the sign of the displayed number
 def negate():
   global display
   if display[0] == '-':
@@ -18,11 +20,13 @@ def negate():
   else:
     display = '-' + display
 
+#The decimal() function adds a decimal point to the displayed number if one is not already present
 def decimal():
   global display
   if '.' not in display:
     display += '.'
 
+#The digit() function adds a digit to the displayed number
 def digit(n):
   global display, clear_next
   if clear_next:
@@ -33,6 +37,7 @@ def digit(n):
   elif len(display) < 8:
     display += str(n)
 
+#The operation() function performs the specified operation using the last number entered and the result of the preceding operation (if any).
 def operation(op):
   global display, last_number, last_operation, clear_next
   if len(display) == 8:
@@ -52,6 +57,7 @@ def operation(op):
   last_operation = op
   clear_next = True
 
+#The perform_operation() function performs the actual arithmetic for the calculator.
 def perform_operation(x, op, y):
   if op == '+':
     return x + y
