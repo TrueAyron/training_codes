@@ -1,64 +1,24 @@
-import argparse
+def temperature_converter():
+    # Pedir ao usuário para inserir a temperatura
+    temperature = float(input("Insira a temperatura: "))
+    # Pedir ao usuário para inserir a unidade de medida da temperatura (C, F ou K)
+    unit = input("Insira a unidade de medida (C, F ou K): ").upper()
 
-# Function to convert Celsius to Fahrenheit
-def celsius_to_fahrenheit(celsius):
-    fahrenheit = (celsius * 9/5) + 32
-    return fahrenheit
+    # Verificar qual unidade de medida foi inserida e converter para as outras unidades
+    if unit == "C":
+        fahrenheit = (temperature * 9/5) + 32
+        kelvin = temperature + 273.15
+        print("%.2f graus Celsius é igual a %.2f graus Fahrenheit e %.2f Kelvin" % (temperature, fahrenheit, kelvin))
+    elif unit == "F":
+        celsius = (temperature - 32) * 5/9
+        kelvin = (temperature + 459.67) * 5/9
+        print("%.2f graus Fahrenheit é igual a %.2f graus Celsius e %.2f Kelvin" % (temperature, celsius, kelvin))
+    elif unit == "K":
+        celsius = temperature - 273.15
+        fahrenheit = (temperature * 9/5) - 459.67
+        print("%.2f Kelvin é igual a %.2f graus Celsius e %.2f graus Fahrenheit" % (temperature, celsius, fahrenheit))
+    else:
+        print("Unidade de medida inválida. Por favor, insira C, F ou K.")
 
-# Function to convert Celsius to Kelvin
-def celsius_to_kelvin(celsius):
-    kelvin = celsius + 273.15
-    return kelvin
-
-# Function to convert Fahrenheit to Celsius
-def fahrenheit_to_celsius(fahrenheit):
-    celsius = (fahrenheit - 32) * 5/9
-    return celsius
-
-# Function to convert Fahrenheit to Kelvin
-def fahrenheit_to_kelvin(fahrenheit):
-    celsius = (fahrenheit - 32) * 5/9
-    kelvin = celsius + 273.15
-    return kelvin
-
-# Function to convert Kelvin to Celsius
-def kelvin_to_celsius(kelvin):
-    celsius = kelvin - 273.15
-    return celsius
-
-# Function to convert Kelvin to Fahrenheit
-def kelvin_to_fahrenheit(kelvin):
-    celsius = kelvin - 273.15
-    fahrenheit = (celsius * 9/5) + 32
-    return fahrenheit
-
-# Define the command-line interface
-parser = argparse.ArgumentParser(description='Temperature converter')
-
-# Define the arguments
-parser.add_argument('temperature', type=float, help='Temperature to convert')
-parser.add_argument('unit', choices=['C', 'F', 'K'], help='Unit of temperature')
-parser.add_argument('-c', '--convert_to', choices=['C', 'F', 'K'], default='F', help='Unit to convert to')
-
-# Parse the arguments
-args = parser.parse_args()
-
-# Convert the temperature
-if args.unit == 'C':
-    if args.convert_to == 'F':
-        result = celsius_to_fahrenheit(args.temperature)
-    elif args.convert_to == 'K':
-        result = celsius_to_kelvin(args.temperature)
-elif args.unit == 'F':
-    if args.convert_to == 'C':
-        result = fahrenheit_to_celsius(args.temperature)
-    elif args.convert_to == 'K':
-        result = fahrenheit_to_kelvin(args.temperature)
-elif args.unit == 'K':
-    if args.convert_to == 'C':
-        result = kelvin_to_celsius(args.temperature)
-    elif args.convert_to == 'F':
-        result = kelvin_to_fahrenheit(args.temperature)
-
-# Print the result
-print(f'{args.temperature} {args.unit} is {result} {args.convert_to}')
+# Chamar a função para iniciar o conversor de temperaturac
+temperature_converter()
