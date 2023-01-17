@@ -26,8 +26,8 @@ class DoublyLinkedList:
         curr.next = new_node # Adiciona o novo nó no final da lista
         new_node.prev = curr # Atualiza o ponteiro prev do novo nó para o nó anterior
 
-# O método print_list itera através da lista a partir da cabeça, imprimindo os dados de cada nó e avançando para
-# o próximo nó até chegar ao final da lista.    
+    # O método print_list itera através da lista a partir da cabeça, imprimindo os dados de cada nó e avançando para
+    # o próximo nó até chegar ao final da lista.    
     def print_list(self):
         curr = self.head
         while curr:
