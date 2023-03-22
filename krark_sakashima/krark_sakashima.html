@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Krark, The Thumbless Coin Toss</h2>
+
+        <p>How many Coins?</p>
+
+        <p>Krark Thumb?</p>
+
+        <button onclick="document.getElementById('demo').innerHTML = RNG(101, 0)">Coin Toss</button>
+        
+        <script>
+            function RNG (max, min) {
+                return Math.floor(Math.random() * (max - min)) + min;
+            }
+
+        </script>
+    </body>
+</html>
