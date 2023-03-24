@@ -5,15 +5,63 @@
 
         <p>How many Coins?</p>
 
-        <p>Krark Thumb?</p>
+        <input type="number" id="toss_x">
 
-        <button onclick="document.getElementById('demo').innerHTML = RNG(101, 0)">Coin Toss</button>
-        
+        <p>Krark Thumb? <input type="checkbox" id="Thumb"></p> 
+
+        <button onclick="tossCoins()">Coin Toss</button>
+
+        <p id="result"></p>
+
         <script>
-            function RNG (max, min) {
-                return Math.floor(Math.random() * (max - min)) + min;
+            function RNG(max, min) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
             }
 
+            function tossCoins() {
+                const inputElement = document.getElementById("toss_x");
+                const tossCount = parseInt(inputElement.value);
+
+                const thumbCheckbox = document.getElementById("Thumb");
+                const thumbChecked = thumbCheckbox.checked;
+
+                let copiaCount = 0;
+                let voltaMaoCount = 0;
+
+                for (let i = 0; i < tossCount; i++) {
+                    let numeroGerado = RNG(101, 0);
+
+                    if (thumbChecked) {
+                        for (let j = 0; j < 2; j++) {
+                            let segundoNumeroGerado = RNG(101, 0);
+                            if (segundoNumeroGerado >= numeroGerado) {
+                                numeroGerado = segundoNumeroGerado;
+                            }
+                        }
+                    }
+
+                    if (numeroGerado >= 50) {
+                        copiaCount++;
+                    } else {
+                        voltaMaoCount++;
+                    }
+                }
+
+                let resultString = "Copia " + copiaCount;
+                if (voltaMaoCount > 0) {
+                    resultString += " e volta para a mão " + voltaMaoCount;
+                }
+
+                resultString += " vez";
+                if (copiaCount != 1 || voltaMaoCount != 1) {
+                    resultString += "es";
+                }
+
+                
+
+                const resultElement = document.getElementById("result");
+                resultElement.innerHTML = resultString;
+            }
         </script>
     </body>
 </html>
