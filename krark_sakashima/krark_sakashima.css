@@ -185,8 +185,8 @@ body* > {
 }
 
 #set-icon {
-    height: 9%;
-    width: 6%;
+    height: 100%;
+    width:5%;
     overflow: hidden;
     margin-right: 10px;
     align-self: center;
@@ -257,10 +257,7 @@ fbi-left {
 }
 .inner-margins {
     margin: 0 10px;
-} */  
-
-
-
+} */ 
 
 .fbi-right {
     flex: 1;
@@ -270,3 +267,4 @@ fbi-left {
     overflow: hidden;
     max-width: 10px;
 }
+
