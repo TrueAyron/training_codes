@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <h2>Krark, The Thumbless Coin Toss</h2>
+    <head>
+        <link rel="stylesheet" type="css" href="krark_sakashima.css">
+      </head>
+    <style>
 
-        <p>How many Coins?</p>
+        body{
+            background-color: #C0C0C0;
+        }
 
-        <input type="number" id="toss_x">
+    </style>
 
-        <p>Krark Thumb? <input type="checkbox" id="Thumb"></p> 
-
-        <button onclick="tossCoins()">Coin Toss</button>
-
-        <p id="result"></p>
-
+    <body>        
+        <div class="container">
+            <div class="box">
+                        <h2>Krark, The Thumbless Coin Toss</h2>
+        
+                    <p>How many Coins?</p>
+        
+                    <input type="number" id="toss_x">
+        
+                    <p>Krark Thumb? <input type="checkbox" id="Thumb"></p> 
+        
+                    <button onclick="tossCoins()">Coin Toss</button>
+        
+                    <p id="result"></p>
+            </div>
+        </div>
         <script>
             function RNG(max, min) {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
