@@ -5,13 +5,15 @@
     <title>Krark, The Thumbless Coin Toss</title>
     <link rel="stylesheet" type="text/css" href="krark_sakashima.css">
   </head>
-  <body>
+  <body class="body">
     <div class="card-container">
       <div class="card-background">
         <div class="card-frame">
           <div class="frame-header">
+
             <h1 class="name">Krark, The Thumbless</h1>
             <i class="ms ms-g" id="mana-icon"></i>
+            
           </div>
           <img class="frame-art" src="https://www.artofmtg.com/wp-content/uploads/2020/11/Krark-the-Thumbless-Commander-Legends-MtG-Art.jpg" alt="Krark, The Thumbless art">
           <div class="frame-type-line">
@@ -19,9 +21,9 @@
             <img src="https://images1.mtggoldfish.com/mtg_sets/commander_legends_symbol.png" id="set-icon" alt="OGW-icon">
           </div>
           <div class="frame-text-box">
-            <p>How many Coins?</p>
+            <p>How many Coins ? </p>
             <input type="number" id="toss_x">
-            <p>Krark Thumb? <input type="checkbox" id="Thumb"></p> 
+            <p>Krark Thumb ? <input type="checkbox" id="Thumb"></p> 
             <button onclick="tossCoins()">Coin Toss</button>
             <p id="result"></p>
           </div>
